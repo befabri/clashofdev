@@ -1,0 +1,7 @@
+---
+const { class: className } = Astro.props;
+---
+
+<main class:list={["flex flex-col items-center justify-center h-full w-full", className]}>
+    <slot />
+</main>

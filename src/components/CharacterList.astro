@@ -1,0 +1,77 @@
+---
+import type { ComponentProps } from "astro/types";
+import CharacterCard from "./ui/CharacterCard.astro";
+
+type CharacterCardProps = ComponentProps<typeof CharacterCard>;
+
+const cards: CharacterCardProps[] = [
+    {
+        title: "L'ARTISTE DE RENOM",
+        category: "DESIGN",
+        point: "/6",
+        image: { src: "/src/assets/cards/1.png", alt: "" },
+        description: `<p><span class="font-bold">Le design,</span> c'est son terrain de jeu. Il maîtrise et retranscrit correctement chaque pixel de la maquette.</p><p>Virtuose des couleurs il ne se trompe jamais de code HEX, de spacing ou de border-radius <span class="font-bold">; Figma n'a aucun secret pour ce Dev de talent.</span></p>`,
+        bgColor: "bg-purple_light",
+        icon: { name: "cursor", color: "bg-purple_mid text-purple_light" },
+    },
+    {
+        title: "LE BÂTISSEUR DE CODE",
+        category: "CODE",
+        point: "/6",
+        image: { src: "/src/assets/cards/2.png", alt: "" },
+        description: `<p>Ses lignes de code sont des fondations solides. C'est un maître du front, capable de structurer les systèmes les plus complexes sans se casser la tête.</p> <p>Maitre de VSCode, il a surement fini le challenge en s'assurant d'avoir le code le plus clair et le plus propre des 36 participants.</p>`,
+        bgColor: "bg-pink_light",
+        icon: { name: "balise", color: "bg-pink_mid text-pink_light" },
+    },
+    {
+        title: "LE MAITRE DE LA FLUIDITÉ",
+        category: "MOTION",
+        point: "/3",
+        image: { src: "/src/assets/cards/3.png", alt: "" },
+        description: `<p>Aucun composant ne s'affiche sans une animation soignée. Ses transitions sont légères, dynamiques et fluides, captivant l'utilisateur à chaque interaction.</p> <p>Ce dev a l'oeil et maitrise le motion mieux que n'importe qui.</p>`,
+        bgColor: "bg-green_light",
+        icon: { name: "star", color: "bg-green_mid text-green_light" },
+    },
+    {
+        title: "LE CHERCHEUR DE BREAKPOINT",
+        category: "RESPONSIVE",
+        point: "/2",
+        image: { src: "/src/assets/cards/4.png", alt: "" },
+        description: `<p>Quelle que soit la taille de l'écran, il garantit une expérience utilisateur sans faille. Chaque site s'adapte à tous les supports, du mobile au grand écran.</p><p>Il fait attention à chaque breakpoint attentivement, on ne pourra pas le reprendre à l'inspection!</p>`,
+        bgColor: "bg-blue_light",
+        icon: { name: "lightning", color: "bg-blue_dark text-blue_light" },
+    },
+    {
+        title: "LE MAITRE DES SECRETS",
+        category: "EASTER EGG",
+        point: "/3",
+        image: { src: "/src/assets/cards/5.png", alt: "" },
+        description: `<p>Derrière une ligne de code bien choisie se cache un secret bien gardé. Il glisse la surprise qui surprendra les utilisateurs les plus curieux.</p> <p>Dev attentif aux comportements utilisateurs il saura cacher l'Easter Egg au meilleur endroit.</p>`,
+        bgColor: "bg-mustard_light",
+        icon: { name: "toggle", color: "bg-mustard_mid text-mustard_light" },
+    },
+    {
+        title: "LE SUR-BOOSTED",
+        category: "BIG BOSS",
+        point: "/ infinite",
+        image: { src: "/src/assets/cards/6.png", alt: "" },
+        description: `<p>Il excelle dans tous les domaines, alliant design, propreté de code, réactivité, animations fluides et créativité cachée. Un vrai prodige qui a su briller dans chaque aspect du développement.</p><p>Ce dev aux multitalents a reçu la standing ovation du jury.</p>`,
+        bgColor: "bg-orange_light",
+        icon: { name: "smiley", color: "bg-orange_mid text-orange_light", size: "p-2" },
+    },
+];
+---
+
+{
+    cards.map((card) => (
+        <CharacterCard
+            title={card.title}
+            category={card.category}
+            image={card.image}
+            point={card.point}
+            description={card.description}
+            bgColor={card.bgColor}
+            icon={card.icon}
+        />
+    ))
+}

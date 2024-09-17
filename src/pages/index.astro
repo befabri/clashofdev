@@ -1,16 +1,16 @@
 ---
-
+import CharacterList from "@components/CharacterList.astro";
+import LandingLayout from "@layouts/LandingLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<LandingLayout title="Clash of Dev">
+    <div class="w-full flex flex-col gap-24 mt-4 md:mt-12 lg:mt-0">
+        <div
+            class="flex flex-col lg:flex-row px-4 xl:px-0 py-8 sm:py-12 gap-14 lg:gap-4 mx-auto max-w-screen-xl w-full">
+            <h1 class="text-6xl font-bold">Que le plus fort, l'emporte</h1>
+        </div>
+        <div class="flex flex-col px-8 mx-auto max-w-screen-2xl w-full">
+            <CharacterList />
+        </div>
+    </div>
+</LandingLayout>

@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Image {
+    src: string;
+    alt: string;
+}
+
+interface SVG {
+    name: string;
+    color: string;
+    size?: string;
+}
+
+interface Props {
+    title: string;
+    category: string;
+    image: Image;
+    point: string;
+    description: string;
+    bgColor: string;
+    icon: SVG;
+}
+
+const { title, category, image, point, description, bgColor, icon } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*.{jpeg,jpg,png,webp}");
+---
+
+<div
+    class:list={[
+        "w-full h-full rounded-[60px] flex flex-col p-10 justify-between gap-10 relative overflow-hidden",
+        bgColor,
+    ]}>
+    <div class="flex flex-row justify-between">
+        <div class="flex flex-row gap-32 justify-start">
+            <div class="flex flex-col gap-1 pl-12 text-opacity-80">
+                <p>{category}</p>
+                <p>{point} pts</p>
+            </div>
+            <p class="font-bold tracking-tight">{title}</p>
+        </div>
+        <div>
+            <p>@maislina_</p>
+        </div>
+    </div>
+    <div class="flex flex-row gap-5">
+        <Image src={images[image.src]()} alt={image.alt} width={987} height={696} class="rounded-xl" />
+        <div
+            class="flex flex-col gap-8 text-xs font-semibold flex-1 pt-[26px] text-text_light text-opacity-60 max-w-60">
+            <Fragment set:html={description} />
+        </div>
+    </div>
+    <div
+        class:list={[
+            "p-20 rounded-full absolute bottom-0 right-0 translate-y-[15%] translate-x-[15%]",
+            icon.color,
+        ]}>
+        <Icon class:list={["h-24 w-24", icon.size]} name={icon.name} />
+    </div>
+</div>
