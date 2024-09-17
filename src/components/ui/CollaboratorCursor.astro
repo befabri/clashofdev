@@ -1,0 +1,62 @@
+---
+export type CollaboratorCursorColors = "pink" | "green" | "blue" | "mustard" | "orange" | "purple";
+
+interface Props {
+    style: CollaboratorCursorColors;
+    class?: string;
+    title: string;
+    side: "right" | "left";
+}
+
+const roundedSide = {
+    left: "rounded-r-full rounded-bl-full rounded-tl-xl",
+    right: "rounded-b-full rounded-tl-full rounded-tr-md",
+};
+
+const cursorStyle = {
+    pink: "text-pink_mid",
+    green: "text-green_mid",
+    blue: "text-blue_dark",
+    mustard: "text-mustard_mid",
+    orange: "text-orange_mid",
+    purple: "text-purple_mid",
+};
+
+const styles = {
+    pink: "bg-pink_mid border-pink_dark text-pink_mid",
+    green: "bg-green_mid border-green_dark",
+    blue: "bg-blue_dark border-blue_dark",
+    mustard: "bg-mustard_mid border-mustard_dark",
+    orange: "bg-orange_mid border-orange_dark",
+    purple: "bg-purple_mid border-purple_dark",
+};
+
+const { title, side, style, class: className } = Astro.props;
+---
+
+<div class="flex flex-col">
+    <svg
+        viewBox="0 0 120 101"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        class:list={["h-4 w-4 -rotate-90", cursorStyle[style]]}>
+        <defs>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="rgba(0, 0, 0, 0.5)"></feDropShadow>
+            </filter>
+        </defs>
+        <path
+            d="M0.00404103 22.662L120 0.919922L60.002 100.427L46.1563 50.3137L0.00404103 22.662Z"
+            fill="currentColor"
+            filter="url(#shadow)"></path>
+    </svg>
+    <div
+        class:list={[
+            "ml-3.5 inline-flex px-3 py-1.5 border-2 items-center self-start",
+            roundedSide[side],
+            styles[style],
+            className,
+        ]}>
+        <p class="text-white">{title}</p>
+    </div>
+</div>

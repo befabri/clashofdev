@@ -13,6 +13,7 @@ const cards: CharacterCardProps[] = [
         description: `<p><span class="font-bold">Le design,</span> c'est son terrain de jeu. Il maîtrise et retranscrit correctement chaque pixel de la maquette.</p><p>Virtuose des couleurs il ne se trompe jamais de code HEX, de spacing ou de border-radius <span class="font-bold">; Figma n'a aucun secret pour ce Dev de talent.</span></p>`,
         bgColor: "bg-purple_light",
         icon: { name: "cursor", color: "bg-purple_mid text-purple_light" },
+        cursors: [{ title: "maislina_", color: "purple" }],
     },
     {
         title: "LE BÂTISSEUR DE CODE",
@@ -22,6 +23,7 @@ const cards: CharacterCardProps[] = [
         description: `<p>Ses lignes de code sont des fondations solides. C'est un maître du front, capable de structurer les systèmes les plus complexes sans se casser la tête.</p> <p>Maitre de VSCode, il a surement fini le challenge en s'assurant d'avoir le code le plus clair et le plus propre des 36 participants.</p>`,
         bgColor: "bg-pink_light",
         icon: { name: "balise", color: "bg-pink_mid text-pink_light" },
+        cursors: [{ title: "Chris", color: "pink" }],
     },
     {
         title: "LE MAITRE DE LA FLUIDITÉ",
@@ -31,6 +33,10 @@ const cards: CharacterCardProps[] = [
         description: `<p>Aucun composant ne s'affiche sans une animation soignée. Ses transitions sont légères, dynamiques et fluides, captivant l'utilisateur à chaque interaction.</p> <p>Ce dev a l'oeil et maitrise le motion mieux que n'importe qui.</p>`,
         bgColor: "bg-green_light",
         icon: { name: "star", color: "bg-green_mid text-green_light" },
+        cursors: [
+            { title: "Lina", color: "green" },
+            { title: "Chris", color: "green" },
+        ],
     },
     {
         title: "LE CHERCHEUR DE BREAKPOINT",
@@ -40,6 +46,10 @@ const cards: CharacterCardProps[] = [
         description: `<p>Quelle que soit la taille de l'écran, il garantit une expérience utilisateur sans faille. Chaque site s'adapte à tous les supports, du mobile au grand écran.</p><p>Il fait attention à chaque breakpoint attentivement, on ne pourra pas le reprendre à l'inspection!</p>`,
         bgColor: "bg-blue_light",
         icon: { name: "lightning", color: "bg-blue_dark text-blue_light" },
+        cursors: [
+            { title: "Lina", color: "blue" },
+            { title: "Chris", color: "blue" },
+        ],
     },
     {
         title: "LE MAITRE DES SECRETS",
@@ -49,6 +59,10 @@ const cards: CharacterCardProps[] = [
         description: `<p>Derrière une ligne de code bien choisie se cache un secret bien gardé. Il glisse la surprise qui surprendra les utilisateurs les plus curieux.</p> <p>Dev attentif aux comportements utilisateurs il saura cacher l'Easter Egg au meilleur endroit.</p>`,
         bgColor: "bg-mustard_light",
         icon: { name: "toggle", color: "bg-mustard_mid text-mustard_light" },
+        cursors: [
+            { title: "Lina", color: "mustard" },
+            { title: "Chris", color: "mustard" },
+        ],
     },
     {
         title: "LE SUR-BOOSTED",
@@ -58,6 +72,10 @@ const cards: CharacterCardProps[] = [
         description: `<p>Il excelle dans tous les domaines, alliant design, propreté de code, réactivité, animations fluides et créativité cachée. Un vrai prodige qui a su briller dans chaque aspect du développement.</p><p>Ce dev aux multitalents a reçu la standing ovation du jury.</p>`,
         bgColor: "bg-orange_light",
         icon: { name: "smiley", color: "bg-orange_mid text-orange_light", size: "p-2" },
+        cursors: [
+            { title: "Lina", color: "orange" },
+            { title: "Chris", color: "orange" },
+        ],
     },
 ];
 ---
@@ -72,6 +90,7 @@ const cards: CharacterCardProps[] = [
             description={card.description}
             bgColor={card.bgColor}
             icon={card.icon}
+            cursors={card.cursors}
         />
     ))
 }

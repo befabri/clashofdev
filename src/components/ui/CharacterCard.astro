@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import type { CollaboratorCursorColors } from "./CollaboratorCursor.astro";
+import CollaboratorCursor from "./CollaboratorCursor.astro";
 
 interface Image {
     src: string;
@@ -13,6 +15,11 @@ interface SVG {
     size?: string;
 }
 
+interface Cursor {
+    title: string;
+    color: CollaboratorCursorColors;
+}
+
 interface Props {
     title: string;
     category: string;
@@ -21,9 +28,10 @@ interface Props {
     description: string;
     bgColor: string;
     icon: SVG;
+    cursors: Cursor[];
 }
 
-const { title, category, image, point, description, bgColor, icon } = Astro.props;
+const { title, category, image, point, description, bgColor, icon, cursors } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*.{jpeg,jpg,png,webp}");
 ---
@@ -33,16 +41,20 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
         "w-full h-full rounded-[60px] flex flex-col p-10 justify-between gap-10 relative overflow-hidden",
         bgColor,
     ]}>
-    <div class="flex flex-row justify-between">
-        <div class="flex flex-row gap-32 justify-start">
-            <div class="flex flex-col gap-1 pl-12 text-opacity-80">
-                <p>{category}</p>
+    <div class="flex flex-row justify-between px-5">
+        <div class="flex flex-row gap-32 justify-start pl-7">
+            <div class="flex flex-col gap-1 text-opacity-80">
+                <p class="uppercase">{category}</p>
                 <p>{point} pts</p>
             </div>
             <p class="font-bold tracking-tight">{title}</p>
         </div>
-        <div>
-            <p>@maislina_</p>
+        <div class="flex flex-row gap-8">
+            {
+                cursors.map((cursor) => (
+                    <CollaboratorCursor title={"@" + cursor.title} side="left" style={cursor.color} />
+                ))
+            }
         </div>
     </div>
     <div class="flex flex-row gap-5">
