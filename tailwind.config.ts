@@ -5,6 +5,8 @@ export default {
         extend: {
             colors: {
                 beige: "#F3F3F1",
+                smoke: "#9C9C9A",
+                smoke_dark: "#838381",
                 pink_light: "#FFEDF5",
                 pink_mid: "#F588B9",
                 pink_dark: "#D6699A",
