@@ -26,8 +26,9 @@ const { title } = Astro.props;
                     document.querySelector("html").dataset.theme = "light";
                 }
                 if (!localStorage.getItem("color-scheme")) {
-                    let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-                    localStorage.setItem("color-scheme", theme);
+                    let defaultTheme = "light";
+                    localStorage.setItem("color-scheme", defaultTheme);
+                    document.querySelector("html").dataset.theme = defaultTheme;
                 }
             };
             setDarkMode();
