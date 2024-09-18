@@ -1,5 +1,5 @@
 ---
-import CharacterList from "@components/CharacterList.astro";
+import CharacterCards from "@components/CharacterCards.astro";
 import CrownCard from "@components/CrownCard.astro";
 import CTACard from "@components/ui/CTACard.astro";
 import LandingLayout from "@layouts/LandingLayout.astro";
@@ -7,7 +7,7 @@ import LandingLayout from "@layouts/LandingLayout.astro";
 
 <LandingLayout title="Clash of Dev">
     <div class="w-full flex flex-col gap-24 mt-4 md:mt-12 lg:mt-24">
-        <div class="flex flex-col px-20 lg:flex-row py-8 sm:py-12 gap-14 lg:gap-4 mx-auto max-w-screen-2xl w-full">
+        <div class="flex flex-col px-8 lg:flex-row py-8 sm:py-12 gap-14 lg:gap-4 mx-auto max-w-screen-2xl w-full">
             <div class="flex flex-row justify-between w-full h-full items-center gap-4">
                 <div class="justify-start">
                     <h1 class="text-8xl font-semibold text-center max-w-3xl">
@@ -19,8 +19,8 @@ import LandingLayout from "@layouts/LandingLayout.astro";
                 </div>
             </div>
         </div>
-        <div class="grid px-20 mx-auto max-w-screen-2xl min-h-screen grid-cols-1 auto-rows-fr">
-            <CharacterList />
+        <div class="flex flex-col px-8 mx-auto max-w-screen-2xl min-h-screen">
+            <CharacterCards />
             <CTACard />
         </div>
     </div>
