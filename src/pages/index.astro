@@ -1,13 +1,22 @@
 ---
 import CharacterList from "@components/CharacterList.astro";
+import CrownCard from "@components/ui/CrownCard.astro";
 import LandingLayout from "@layouts/LandingLayout.astro";
 ---
 
 <LandingLayout title="Clash of Dev">
-    <div class="w-full flex flex-col gap-24 mt-4 md:mt-12 lg:mt-0">
-        <div
-            class="flex flex-col lg:flex-row px-4 xl:px-0 py-8 sm:py-12 gap-14 lg:gap-4 mx-auto max-w-screen-xl w-full">
-            <h1 class="text-6xl font-bold">Que le plus fort, l'emporte</h1>
+    <div class="w-full flex flex-col gap-24 mt-4 md:mt-12 lg:mt-24">
+        <div class="flex flex-col lg:flex-row py-8 sm:py-12 gap-14 lg:gap-4 mx-auto max-w-screen-2xl w-full px-8">
+            <div class="flex flex-row justify-between w-full h-full items-center gap-4">
+                <div class="justify-start">
+                    <h1 class="text-8xl font-semibold text-center max-w-3xl">
+                        Que le plus fort, <span class="italic">l'emporte!</span>
+                    </h1>
+                </div>
+                <div class="h-full w-full flex justify-end flex-1 pr-24">
+                    <CrownCard />
+                </div>
+            </div>
         </div>
         <div class="flex flex-col px-8 mx-auto max-w-screen-2xl w-full">
             <CharacterList />
