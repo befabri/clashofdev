@@ -2,7 +2,9 @@
   "extends": "astro/tsconfigs/strict",
   "exclude": ["dist"],
   "compilerOptions": {
-    "jsx": "react",
+    "strictNullChecks": true,
+     "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "baseUrl": "src",
     "paths": {
         "@assets/*": ["assets/*"],
