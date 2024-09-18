@@ -14,21 +14,21 @@ const roundedSide = {
 };
 
 const cursorStyle = {
-    pink: "text-pink_mid",
-    green: "text-green_mid",
-    blue: "text-blue_dark",
-    mustard: "text-mustard_mid",
-    orange: "text-orange_mid",
-    purple: "text-purple_mid",
+    pink: "text-pink_mid dark:text-pink_light",
+    green: "text-green_mid dark:text-green_light",
+    blue: "text-blue_dark dark:text-blue_light",
+    mustard: "text-mustard_mid dark:text-mustard_light",
+    orange: "text-orange_mid dark:text-orange_light",
+    purple: "text-purple_mid dark:text-purple_light",
 };
 
 const styles = {
-    pink: "bg-pink_mid border-pink_dark text-pink_mid",
-    green: "bg-green_mid border-green_dark",
-    blue: "bg-blue_dark border-blue_dark",
-    mustard: "bg-mustard_mid border-mustard_dark",
-    orange: "bg-orange_mid border-orange_dark",
-    purple: "bg-purple_mid border-purple_dark",
+    pink: "bg-pink_mid border-pink_dark dark:border-pink_mid/60 dark:bg-pink_light",
+    green: "bg-green_mid border-green_dark dark:border-green_mid/60 dark:bg-green_light",
+    blue: "bg-blue_dark border-blue_dark dark:border-blue_mid/60 dark:bg-blue_light",
+    mustard: "bg-mustard_mid border-mustard_dark dark:border-mustard_mid/60 dark:bg-mustard_light",
+    orange: "bg-orange_mid border-orange_dark dark:border-orange_mid/60 dark:bg-orange_light",
+    purple: "bg-purple_mid border-purple_dark dark:border-purple_mid/60 dark:bg-purple_light",
 };
 
 const { title, side, style, class: className } = Astro.props;
@@ -93,12 +93,12 @@ const containerAlignmentClass = side === "right" ? "items-end" : "";
     <div
         class:list={[
             marginClass,
-            "inline-flex px-3 py-1.5 border-2 items-center",
+            "inline-flex px-3 px-1.5 py-1.5 border-2 items-center ",
             alignmentClass,
             roundedSide[side],
             styles[style],
             className,
         ]}>
-        <p class="text-white">{title}</p>
+        <p class="text-cod_white dark:text-cod_black font-semibold text-xs">{title}</p>
     </div>
 </div>

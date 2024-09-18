@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components";
+import CollaboratorCursor from "./ui/CollaboratorCursor.astro";
+---
+
+<div class="relative">
+    <div class="bg-cod_white dark:bg-cod_black rotate-[12.48deg] flex flex-col p-2 w-[249.11px] h-[309.53px]">
+        <div class="flex justify-start">
+            <Icon class="h-[29px] w-[29px] text-beige dark:text-beige/20" name="crown" />
+        </div>
+
+        <div class="flex-1 flex items-center justify-center">
+            <Icon class="h-[188px] w-[188px] text-beige dark:text-beige/20" name="crown" />
+        </div>
+
+        <div class="flex justify-end">
+            <Icon class="h-[29px] w-[29px] text-beige dark:text-beige/20" name="crown" />
+        </div>
+    </div>
+
+    <div class="absolute bottom-[1%] left-[-20%]">
+        <CollaboratorCursor title="@sometimecrea" side="right" style="pink" />
+    </div>
+    <div class="absolute top-[67%] right-[-27%] transform -translate-y-1/2">
+        <CollaboratorCursor title="@maislina_" side="left" style="orange" />
+    </div>
+    <div class="absolute bottom-[-7%] right-[-23%]">
+        <CollaboratorCursor title="@LLCoolChris" side="left" style="blue" />
+    </div>
+</div>

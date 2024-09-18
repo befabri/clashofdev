@@ -60,7 +60,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
     <div class="flex flex-row gap-5">
         <Image src={images[image.src]()} alt={image.alt} width={987} height={696} class="rounded-xl" />
         <div
-            class="flex flex-col gap-8 text-xs font-semibold flex-1 pt-[26px] text-text_light text-opacity-60 max-w-60">
+            class="flex flex-col gap-8 text-xs font-semibold flex-1 pt-[26px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 max-w-60">
             <Fragment set:html={description} />
         </div>
     </div>
