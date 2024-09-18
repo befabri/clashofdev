@@ -32,27 +32,69 @@ const styles = {
 };
 
 const { title, side, style, class: className } = Astro.props;
+
+const marginClass = side === "left" ? "ml-3.5" : "mr-3.5";
+const alignmentClass = side === "left" ? "self-start" : "self-end";
+const containerAlignmentClass = side === "right" ? "items-end" : "";
 ---
 
-<div class="flex flex-col">
-    <svg
-        viewBox="0 0 120 101"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        class:list={["h-4 w-4 -rotate-90", cursorStyle[style]]}>
-        <defs>
-            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="rgba(0, 0, 0, 0.5)"></feDropShadow>
-            </filter>
-        </defs>
-        <path
-            d="M0.00404103 22.662L120 0.919922L60.002 100.427L46.1563 50.3137L0.00404103 22.662Z"
-            fill="currentColor"
-            filter="url(#shadow)"></path>
-    </svg>
+<div class="flex flex-col" class:list={[containerAlignmentClass]}>
+    {
+        side === "left" ? (
+            <svg
+                viewBox="0 0 12 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class:list={["h-4 w-4", cursorStyle[style]]}>
+                <defs>
+                    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feDropShadow
+                            dx="0.1"
+                            dy="0.8"
+                            stdDeviation="0.5"
+                            flood-color="black"
+                            flood-opacity="0.2"
+                        />
+                    </filter>
+                </defs>
+                <path
+                    d="M2.82601 11.4738L1.08747 1.45503L11.001 6.26082L5.94248 7.63193L2.82601 11.4738Z"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="0.631858"
+                    filter="url(#dropShadow)"
+                />
+            </svg>
+        ) : (
+            <svg
+                viewBox="-1 -1 12 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class:list={["h-4 w-4", cursorStyle[style]]}>
+                <defs>
+                    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feDropShadow
+                            dx="0.1"
+                            dy="0.8"
+                            stdDeviation="0.5"
+                            flood-color="black"
+                            flood-opacity="0.2"
+                        />
+                    </filter>
+                </defs>
+                <path
+                    d="M8.17399 10.4217L9.91253 0.402911L-0.000952833 5.20869L5.05752 6.5798L8.17399 10.4217Z"
+                    fill="currentColor"
+                    filter="url(#dropShadow)"
+                />
+            </svg>
+        )
+    }
     <div
         class:list={[
-            "ml-3.5 inline-flex px-3 py-1.5 border-2 items-center self-start",
+            marginClass,
+            "inline-flex px-3 py-1.5 border-2 items-center",
+            alignmentClass,
             roundedSide[side],
             styles[style],
             className,
