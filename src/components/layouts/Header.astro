@@ -1,5 +1,12 @@
 ---
-
+import Logo from "@components/ui/Logo.astro";
+import ToggleSwitch from "@components/ui/ToggleSwitch.astro";
 ---
 
-<span> 0% </span>
+<header class="flex flex-row items-center pt-[20px]">
+    <div class="mx-auto max-w-screen-2xl w-full flex flex-row justify-between items-center px-8">
+        <Logo />
+        <span class="font-bold text-xs text-text_light">0%</span>
+        <ToggleSwitch />
+    </div>
+</header>
