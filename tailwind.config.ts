@@ -28,6 +28,15 @@ export default {
                 purple_light: "#EBEDFF",
                 purple_mid: "#9FA8FE",
             },
+            keyframes: {
+                marquee: {
+                    "0%": { transform: "translateX(0)" },
+                    "100%": { transform: "translateX(-100%)" },
+                },
+            },
+            animation: {
+                marquee: "marquee 210s linear infinite",
+            },
         },
     },
     plugins: [],

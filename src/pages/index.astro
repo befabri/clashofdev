@@ -2,11 +2,12 @@
 import CharacterCards from "@components/CharacterCards.astro";
 import CrownCard from "@components/CrownCard.astro";
 import CTACard from "@components/ui/CTACard.astro";
+import Marquee from "@components/ui/Marquee.astro";
 import LandingLayout from "@layouts/LandingLayout.astro";
 ---
 
 <LandingLayout title="Clash of Dev">
-    <div class="w-full flex flex-col gap-24 mt-4 md:mt-12 lg:mt-24">
+    <div class="w-full flex flex-col gap-[100px] mt-4 md:mt-12 lg:mt-24 pb-[60px]">
         <div class="flex flex-col px-8 lg:flex-row py-8 sm:py-12 gap-14 lg:gap-4 mx-auto max-w-screen-2xl w-full">
             <div class="flex flex-row justify-between w-full h-full items-center gap-4">
                 <div class="justify-start">
@@ -18,6 +19,9 @@ import LandingLayout from "@layouts/LandingLayout.astro";
                     <CrownCard />
                 </div>
             </div>
+        </div>
+        <div class="flex">
+            <Marquee />
         </div>
         <div class="flex flex-col px-8 mx-auto max-w-screen-2xl min-h-screen">
             <CharacterCards />
