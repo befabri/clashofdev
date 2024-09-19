@@ -1,5 +1,6 @@
 ---
 title: "LE SUR-BOOSTED"
+order: 6
 category: "BIG BOSS"
 point: "/ infinite"
 image: { src: "/src/assets/cards/6.png", alt: "" }

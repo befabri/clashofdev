@@ -1,5 +1,6 @@
 ---
 title: "LE MAITRE DES SECRETS"
+order: 5
 category: "EASTER EGG"
 point: "/3"
 image: { src: "/src/assets/cards/5.png", alt: "" }

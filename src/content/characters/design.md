@@ -1,5 +1,6 @@
 ---
 title: "L'ARTISTE DE RENOM"
+order: 1
 category: "DESIGN"
 point: "/6"
 image: { src: "/src/assets/cards/1.png", alt: "" }

@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 const characters = defineCollection({
     schema: z.object({
         title: z.string(),
+        order: z.number(),
         category: z.string(),
         point: z.string(),
         image: z.object({

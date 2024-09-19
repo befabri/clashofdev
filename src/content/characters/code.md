@@ -1,5 +1,6 @@
 ---
 title: "LE BÂTISSEUR DE CODE"
+order: 2
 category: "CODE"
 point: "/6"
 image: { src: "/src/assets/cards/2.png", alt: "" }
