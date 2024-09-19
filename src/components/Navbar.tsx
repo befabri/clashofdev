@@ -6,12 +6,15 @@ import Logo from "./ui/Logo";
 export default function Navbar() {
     const [isAtBottom, setIsAtBottom] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
+    const [scrollPercent, setScrollPercent] = useState(0);
 
     const handleScroll = () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercentage = (scrollTop / docHeight) * 100;
-        setIsAtBottom(Math.round(Math.min(Math.max(scrollPercentage, 0), 100)) >= 100);
+        const boundedScrollPercent = Math.min(Math.max(scrollPercentage, 0), 100);
+        setScrollPercent(boundedScrollPercent);
+        setIsAtBottom(Math.round(boundedScrollPercent) >= 100);
     };
 
     useEffect(() => {
@@ -33,7 +36,7 @@ export default function Navbar() {
                 <Logo />
             </div>
             <div class="flex-1 flex justify-center">
-                <ScrollPercentage />
+                <ScrollPercentage scrollPercent={scrollPercent} />
             </div>
             <div class="flex-1 flex justify-end">
                 <ToggleSwitch />
