@@ -20,6 +20,7 @@ const characters = defineCollection({
             z.object({
                 title: z.string(),
                 color: z.enum(["pink", "green", "blue", "mustard", "orange", "purple"]),
+                isTextColored: z.boolean(),
             })
         ),
     }),

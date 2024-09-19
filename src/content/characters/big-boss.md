@@ -11,8 +11,8 @@ icon: {
     size: "p-2",
     }
 cursors: [
-    { title: "Lina", color: "orange" },
-    { title: "Chris", color: "orange" },
+    { title: "Lina", color: "orange", isTextColored: false },
+    { title: "Chris", color: "orange", isTextColored: false },
     ]
 ---
 

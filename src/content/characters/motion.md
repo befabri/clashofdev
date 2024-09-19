@@ -7,8 +7,8 @@ image: { src: "/src/assets/cards/3.png", alt: "" }
 bgColor: "bg-green_light dark:bg-green_dark"
 icon: { name: "star", color: "bg-green_mid dark:bg-green_light text-green_light dark:text-green_dark" }
 cursors: [
-    { title: "Lina", color: "green" },
-    { title: "Chris", color: "green" },
+    { title: "Lina", color: "green", isTextColored: false },
+    { title: "Chris", color: "green", isTextColored: false },
     ]
 ---
 

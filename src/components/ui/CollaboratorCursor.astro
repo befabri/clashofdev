@@ -1,9 +1,9 @@
 ---
 interface Props {
     style: "pink" | "green" | "blue" | "mustard" | "orange" | "purple";
-    class?: string;
     title: string;
     side: "right" | "left";
+    isTextColored?: boolean;
 }
 
 const roundedSide = {
@@ -27,6 +27,7 @@ const textStyles = {
     mustard: "text-mustard_light dark:text-mustard_dark",
     orange: "text-orange_light dark:text-orange_dark",
     purple: "text-purple_light dark:text-purple_dark",
+    white: "text-cod_white dark:text-cod_black",
 };
 
 const styles = {
@@ -38,75 +39,43 @@ const styles = {
     purple: "bg-purple_mid border-purple_dark dark:border-purple_mid/60 dark:bg-purple_light",
 };
 
-const { title, side, style, class: className } = Astro.props;
-
-const marginClass = side === "left" ? "ml-3.5" : "mr-3.5";
-const alignmentClass = side === "left" ? "self-start" : "self-end";
-const containerAlignmentClass = side === "right" ? "items-end" : "";
+const { title, side, style, isTextColored = false } = Astro.props;
 ---
 
-<div class="flex flex-col" class:list={[containerAlignmentClass]}>
-    {
-        side === "left" ? (
-            <svg
-                viewBox="0 0 12 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class:list={["h-4 w-4", cursorStyles[style]]}>
-                <defs>
-                    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feDropShadow
-                            dx="0.1"
-                            dy="0.8"
-                            stdDeviation="0.5"
-                            flood-color="black"
-                            flood-opacity="0.2"
-                        />
-                    </filter>
-                </defs>
-                <path
-                    d="M2.82601 11.4738L1.08747 1.45503L11.001 6.26082L5.94248 7.63193L2.82601 11.4738Z"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="0.631858"
-                    filter="url(#dropShadow)"
-                />
-            </svg>
-        ) : (
-            <svg
-                viewBox="-1 -1 12 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class:list={["h-4 w-4", cursorStyles[style]]}>
-                <defs>
-                    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feDropShadow
-                            dx="0.1"
-                            dy="0.8"
-                            stdDeviation="0.5"
-                            flood-color="black"
-                            flood-opacity="0.2"
-                        />
-                    </filter>
-                </defs>
-                <path
-                    d="M8.17399 10.4217L9.91253 0.402911L-0.000952833 5.20869L5.05752 6.5798L8.17399 10.4217Z"
-                    fill="currentColor"
-                    filter="url(#dropShadow)"
-                />
-            </svg>
-        )
-    }
+<div class="flex flex-col gap-[0.9px]" class:list={[side === "right" ? "items-end" : ""]}>
     <div
         class:list={[
-            marginClass,
-            "inline-flex px-3 pt-[6px] pb-1 border-2 items-center",
-            alignmentClass,
+            "w-[14px] h-[12.63px]",
+            side === "left" ? " flex justify-end items-end" : "flex justify-start items-end",
+        ]}>
+        <svg
+            viewBox="0 0 12 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class:list={["w-[9.7px] h-[9.43px]", cursorStyles[style], side === "left" ? "" : "scale-x-[-1]"]}>
+            <defs>
+                <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0.1" dy="0.8" stdDeviation="0.5" flood-color="black" flood-opacity="0.2"
+                    ></feDropShadow>
+                </filter>
+            </defs>
+            <path
+                d="M2.82601 11.4738L1.08747 1.45503L11.001 6.26082L5.94248 7.63193L2.82601 11.4738Z"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="0.631858"
+                filter="url(#dropShadow)"></path>
+        </svg>
+    </div>
+    <div
+        class:list={[
+            side === "left" ? "ml-3.5" : "mr-3.5",
+            "inline-flex px-[10px] py-[4px] border-2 items-center",
+            side === "left" ? "self-start" : "self-end",
             roundedSide[side],
             styles[style],
-            className,
-            textStyles[style],
+            isTextColored ? textStyles[style] : textStyles["white"],
         ]}>
-        <p class="font-semibold text-xs">{title}</p>
+        <p class="font-semibold text-xs p-0 m-0">{title}</p>
     </div>
 </div>

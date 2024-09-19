@@ -9,7 +9,7 @@ icon: {
     name: "cursor",
     color: "bg-purple_mid dark:bg-purple_light text-purple_light dark:text-purple_dark",
     }
-cursors: [{ title: "maislina_", color: "purple" }]
+cursors: [{ title: "maislina_", color: "purple", isTextColored: false }]
 ---
 **Le design,** c’est son terrain de jeu. Il maîtrise et retranscrit correctement chaque pixel de la maquette.
 

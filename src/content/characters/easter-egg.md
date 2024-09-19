@@ -10,8 +10,8 @@ icon: {
     color: "bg-mustard_mid dark:bg-mustard_light text-mustard_light dark:text-mustard_dark",
     }
 cursors: [
-    { title: "Lina", color: "mustard" },
-    { title: "Chris", color: "mustard" },
+    { title: "Lina", color: "mustard", isTextColored: true },
+    { title: "Chris", color: "mustard", isTextColored: true },
     ]
 ---
 
