@@ -11,7 +11,7 @@ interface Props {
 const { href, block, size = "lg", style = "primary", class: className, ...rest } = Astro.props;
 
 const sizes = {
-    lg: "px-[50px] py-6",
+    lg: "px-[52px] py-[22px]",
     md: "px-4 py-2.5",
 };
 
@@ -25,7 +25,7 @@ const styles = {
     href={href}
     {...rest}
     class:list={[
-        "rounded-full text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 tracking-tight text-sm relative z-30 font-semibold",
+        "rounded-full text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 tracking-tight text-sm font-semibold",
         block && "md:w-full",
         sizes[size],
         styles[style],
