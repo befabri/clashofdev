@@ -2,10 +2,16 @@
 import Logo from "@components/ui/Logo.astro";
 ---
 
-<footer class="flex flex-row items-center pt-14 pb-[21px]">
-    <div class="mx-auto max-w-screen-2xl w-full flex flex-row justify-between items-center px-20">
-        <Logo />
-        <span class="font-bold text-xs text-cod_black dark:text-cod_white">100%</span>
-        <span class="font-bold text-xs text-cod_black dark:text-cod_white">@2024</span>
+<footer class="flex flex-row items-center pt-10 pb-[21px]">
+    <div class="mx-auto max-w-screen-2xl w-full flex flex-row items-center px-8">
+        <div class="flex-1 flex">
+            <Logo />
+        </div>
+        <div class="flex-1 flex justify-center">
+            <span class="font-bold text-xs text-cod_black dark:text-cod_white">100%</span>
+        </div>
+        <div class="flex-1 flex justify-end">
+            <span class="font-bold text-xs text-cod_black dark:text-cod_white">@2024</span>
+        </div>
     </div>
 </footer>
