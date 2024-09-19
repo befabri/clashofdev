@@ -1,34 +1,18 @@
 ---
 import CharacterCards from "@components/CharacterCards.astro";
 import CrownCard from "@components/CrownCard.astro";
+import LandingTitle from "@components/LandingTitle.astro";
 import CTACard from "@components/ui/CTACard.astro";
 import Marquee from "@components/ui/Marquee.astro";
 import LandingLayout from "@layouts/LandingLayout.astro";
-import { Icon } from "astro-icon/components";
 ---
 
 <LandingLayout title="Clash of Dev">
     <div class="w-full flex flex-col pb-[60px] pt-[225px]">
         <div class="flex flex-col px-8 lg:flex-row gap-14 lg:gap-4 mx-auto max-w-screen-2xl w-full">
             <div class="flex flex-row justify-between w-full h-full items-center gap-4">
-                <div class="justify-start relative">
-                    <h1 class="text-[115px] leading-[123px] font-semibold text-center max-w-4xl">
-                        Que le plus fort, <span class="italic ml-8">l'emporte!</span>
-                    </h1>
-                    <div
-                        class="w-[78px] h-[78px] bg-purple_mid dark:bg-pink_dark rounded-full flex items-center justify-center absolute bottom-[23.84px] left-[28px]">
-                        <Icon
-                            class="w-[26.32px] h-[22.76px] text-green_light dark:text-green_light/60 rotate-[-23deg]"
-                            name="balise"
-                        />
-                    </div>
-                    <div class="absolute bottom-[27.92px] left-[117.27px]">
-                        <Icon class="w-[44px] h-[47px]" name="shield_lightning" />
-                    </div>
-                </div>
-                <div class="h-full w-full flex justify-end flex-1 pr-14">
-                    <CrownCard />
-                </div>
+                <LandingTitle class="justify-start relative" />
+                <CrownCard class="h-full w-full flex justify-end flex-1 pr-14" />
             </div>
         </div>
         <div class="flex pt-[136px]">
