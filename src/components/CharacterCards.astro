@@ -10,6 +10,7 @@ interface Image {
 }
 
 const charactersCollection = await getCollection("characters");
+charactersCollection.sort((a, b) => a.data.order.valueOf() - b.data.order.valueOf());
 
 const cards = await Promise.all(
     charactersCollection.map(async (card) => {
@@ -31,15 +32,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                 "sticky top-0 h-full rounded-[60px] flex flex-col p-10 justify-between gap-10 relative overflow-hidden",
                 card.bgColor,
             ]}>
-            <div class="flex flex-row justify-between px-5">
-                <div class="flex flex-row gap-32 justify-start pl-7">
+            <div class="flex flex-row justify-between px-[21px]">
+                <div class="flex flex-row gap-32 justify-start pl-[23px]">
                     <div class="flex flex-col gap-1 text-opacity-80">
                         <p class="uppercase">{card.category}</p>
                         <p>{card.point} pts</p>
                     </div>
                     <p class="font-bold tracking-tight">{card.title}</p>
                 </div>
-                <div class="flex flex-row gap-8">
+                <div class="flex flex-row gap-5">
                     {card.cursors.map((cursor) => (
                         <CollaboratorCursor title={"@" + cursor.title} side="left" style={cursor.color} />
                     ))}
@@ -53,13 +54,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                     height={696}
                     class="rounded-xl"
                 />
-                <div class="flex flex-col gap-8 text-xs font-semibold flex-1 pt-[26px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 max-w-60 leading-5">
+                <div class="flex flex-col gap-8 text-xs font-semibold flex-1 pt-[26px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 pr-[48px] leading-5">
                     <card.Content />
                 </div>
             </div>
             <div
                 class:list={[
-                    "p-20 rounded-full absolute bottom-0 right-0 translate-y-[15%] translate-x-[15%]",
+                    "p-20 rounded-full absolute bottom-0 right-0 translate-y-[51px] translate-x-[38px]",
                     card.icon.color,
                 ]}>
                 <Icon class:list={["h-24 w-24", card.icon.size]} name={card.icon.name} />
