@@ -40,8 +40,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                     <p class="font-bold tracking-tight">{card.title}</p>
                 </div>
                 <div class="flex flex-row gap-8">
-                    {card.cursors.map((cursor: { title: string; color: string }) => (
-                        <CollaboratorCursor title={"@" + cursor.title} side="left" style="pink" />
+                    {card.cursors.map((cursor) => (
+                        <CollaboratorCursor title={"@" + cursor.title} side="left" style={cursor.color} />
                     ))}
                 </div>
             </div>

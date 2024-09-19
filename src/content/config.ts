@@ -18,7 +18,7 @@ const characters = defineCollection({
         cursors: z.array(
             z.object({
                 title: z.string(),
-                color: z.string(),
+                color: z.enum(["pink", "green", "blue", "mustard", "orange", "purple"]),
             })
         ),
     }),
