@@ -9,16 +9,16 @@ import LandingLayout from "@layouts/LandingLayout.astro";
 
 <LandingLayout title="Clash of Dev">
     <div class="w-full flex flex-col pb-[60px] pt-[225px]">
-        <div class="flex flex-col px-8 lg:flex-row gap-14 lg:gap-4 mx-auto max-w-screen-2xl w-full">
-            <div class="flex flex-row justify-between w-full h-full items-center gap-4">
-                <LandingTitle class="justify-start relative" />
-                <CrownCard class="h-full w-full flex justify-end flex-1 pr-14" />
+        <div class="flex flex-col px-3 sm:px-8 lg:flex-row sm:mx-auto max-w-screen-2xl w-full">
+            <div class="flex flex-col lg:flex-row justify-between w-full h-full items-center gap-10 sm:gap-20">
+                <LandingTitle class="justify-start relative w-full pr-[1px]" />
+                <CrownCard class="h-full flex justify-center md:justify-end md:pr-[39px]" />
             </div>
         </div>
-        <div class="flex pt-[136px]">
+        <div class="flex pt-[100px] sm:pt-[160px]">
             <Marquee />
         </div>
-        <div class="flex flex-col px-8 mx-auto max-w-screen-2xl min-h-screen pt-[100px]">
+        <div class="flex flex-col px-3 md:px-8 md:mx-auto max-w-screen-2xl min-h-screen pt-[101px] sm:pt-[100px]">
             <CharacterCards />
             <CTACard />
         </div>
