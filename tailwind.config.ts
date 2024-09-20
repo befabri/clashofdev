@@ -3,6 +3,10 @@ export default {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     theme: {
         extend: {
+            screens: {
+                md: "880px",
+                lg: "1090px",
+            },
             colors: {
                 beige: "#F3F3F1",
                 beige_dark: "#D9D9D7",
