@@ -8,6 +8,7 @@ bgColor: "bg-mustard_light dark:bg-mustard_dark"
 icon: {
     name: "toggle",
     color: "bg-mustard_mid dark:bg-mustard_light text-mustard_light dark:text-mustard_dark",
+    size: "w-[56.8px] h-[42.82px] md:w-[calc(130px/1.7)] md:h-[calc(98px/1.7)] lg:w-[calc(130px/1.3)] lg:h-[calc(98px/1.3)] xl:w-[130px] xl:h-[98px]",
     }
 cursors: [
     { title: "Lina", color: "mustard", isTextColored: true },

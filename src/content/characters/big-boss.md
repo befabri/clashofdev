@@ -8,7 +8,7 @@ bgColor: "bg-orange_light dark:bg-orange_dark"
 icon: {
     name: "smiley",
     color: "bg-orange_mid dark:bg-orange_light text-orange_light dark:text-orange_dark",
-    size: "p-2",
+    size: "w-[39px] h-[35.74px] md:w-[calc(90px/1.7)] md:h-[calc(82px/1.7)] lg:w-[calc(90px/1.3)] lg:h-[calc(82px/1.3)] xl:w-[90px] xl:h-[82px]",
     }
 cursors: [
     { title: "Lina", color: "orange", isTextColored: false },

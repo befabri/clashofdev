@@ -5,7 +5,11 @@ category: "MOTION"
 point: "/3"
 image: { src: "/src/assets/cards/3.png", alt: "" }
 bgColor: "bg-green_light dark:bg-green_dark"
-icon: { name: "star", color: "bg-green_mid dark:bg-green_light text-green_light dark:text-green_dark" }
+icon: {
+    name: "star",
+    color: "bg-green_mid dark:bg-green_light text-green_light dark:text-green_dark",
+    size: "w-[52.43px] h-[52.43px] md:w-[calc(120px/1.7)] md:h-[calc(120px/1.7)] lg:w-[calc(120px/1.3)] lg:h-[calc(120px/1.3)] xl:w-[120px] xl:h-[120px]",
+    }
 cursors: [
     { title: "Lina", color: "green", isTextColored: false },
     { title: "Chris", color: "green", isTextColored: false },

@@ -29,18 +29,23 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
     cards.map((card) => (
         <div
             class:list={[
-                "sticky top-0 h-full rounded-[60px] flex flex-col p-10 justify-between gap-10 relative overflow-hidden",
+                "sticky top-0 h-full rounded-[60px] flex flex-col px-[47px] md:px-10 pt-[40px] pb-[114px] md:pb-[40px] justify-between gap-10 relative overflow-hidden",
                 card.bgColor,
             ]}>
-            <div class="flex flex-row justify-between px-[21px]">
-                <div class="flex flex-row gap-32 justify-start pl-[23px]">
+            <div class="flex flex-row md:justify-between md:px-[21px] h-full w-full">
+                <div class="flex flex-row md:gap-[124px] w-full gap-6 justify-start md:pl-[23px]">
                     <div class="flex flex-col gap-1 text-opacity-80">
-                        <p class="uppercase">{card.category}</p>
+                        <p class="uppercase">
+                            <>
+                                <span class="hidden md:flex">{card.category}</span>
+                                <span class="md:hidden">NOS HÉROS</span>
+                            </>
+                        </p>
                         <p>{card.point} pts</p>
                     </div>
-                    <p class="font-bold tracking-tight">{card.title}</p>
+                    <p class="font-bold tracking-tight flex-1">{card.title}</p>
                 </div>
-                <div class="flex flex-row gap-5">
+                <div class="hidden md:flex flex-row gap-5">
                     {card.cursors.map((cursor) => (
                         <CollaboratorCursor
                             title={"@" + cursor.title}
@@ -51,24 +56,36 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                     ))}
                 </div>
             </div>
-            <div class="flex flex-row gap-5">
-                <Image
-                    src={images[card.image.src]()}
-                    alt={card.image.alt}
-                    width={987}
-                    height={696}
-                    class="rounded-xl"
-                />
-                <div class="flex flex-col gap-8 text-xs font-semibold flex-1 pt-[26px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 pr-[48px] leading-5">
+            <div class="flex flex-col md:flex-row gap-5 h-full w-full">
+                <div class="flex-shrink relative">
+                    <Image
+                        src={images[card.image.src]()}
+                        alt={card.image.alt}
+                        width={987}
+                        height={696}
+                        class="rounded-xl object-contain h-auto w-full"
+                    />
+                    <div class="absolute top-[-27px] right-[-22px] md:hidden flex flex-col-reverse">
+                        {card.cursors.map((cursor) => (
+                            <CollaboratorCursor
+                                title={"@" + cursor.title}
+                                side="left"
+                                style={cursor.color}
+                                isTextColored={cursor.isTextColored}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <div class="flex flex-col justify-start gap-8 text-xs font-semibold pt-[26px] flex-1 md:min-w-[245px] md:max-w-[400px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 md:pr-[48px] leading-5">
                     <card.Content />
                 </div>
             </div>
             <div
                 class:list={[
-                    "p-20 rounded-full absolute bottom-0 right-0 translate-y-[51px] translate-x-[38px]",
+                    "w-[135px] h-[135px] md:w-[calc(310px/1.7)] md:h-[calc(310px/1.7)] lg:w-[calc(310px/1.2)] lg:h-[calc(310px/1.2)] xl:w-[310px] xl:h-[310px] flex items-center justify-center rounded-full absolute bottom-0 right-0 translate-y-[25%] md:translate-x-[18%] md:translate-y-[18%]",
                     card.icon.color,
                 ]}>
-                <Icon class:list={["h-24 w-24", card.icon.size]} name={card.icon.name} />
+                <Icon class={card.icon.size} name={card.icon.name} />
             </div>
         </div>
     ))

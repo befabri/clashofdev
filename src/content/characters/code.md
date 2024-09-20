@@ -5,7 +5,11 @@ category: "CODE"
 point: "/6"
 image: { src: "/src/assets/cards/2.png", alt: "" }
 bgColor: "bg-pink_light dark:bg-pink_dark"
-icon: { name: "balise", color: "bg-pink_mid dark:bg-pink_light text-pink_light dark:text-pink_dark" }
+icon: {
+    name: "balise",
+    color: "bg-pink_mid dark:bg-pink_light text-pink_light dark:text-pink_dark",
+    size: "w-[55.49px] h-[32.33px] md:w-[calc(127px/1.7)] md:h-[calc(74px/1.7)] lg:w-[calc(127px/1.3)] lg:h-[calc(74px/1.3)] xl:w-[127px] xl:h-[74px]",
+    }
 cursors: [{ title: "Chris", color: "pink", isTextColored: false }]
 ---
 
