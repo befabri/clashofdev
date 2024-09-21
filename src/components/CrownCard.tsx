@@ -56,21 +56,42 @@ export default function CrownCard({ className }: Props) {
     const cursorSizes = useRef<{ width: number; height: number }[]>([]);
     const animationRef = useRef<number | null>(null);
 
-    const onMouseDown = (e: MouseEvent, index: number) => {
+    const onStart = (e: MouseEvent | TouchEvent, index: number) => {
+        e.preventDefault();
         if (!parentRef.current) return;
         const parent = parentRef.current.getBoundingClientRect();
+
+        let clientX, clientY;
+        if ("touches" in e) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+
         setIsDragging(index);
-        startPos.current = { x: e.clientX - parent.left, y: e.clientY - parent.top };
-        lastPos.current = { x: e.clientX - parent.left, y: e.clientY - parent.top };
+        startPos.current = { x: clientX - parent.left, y: clientY - parent.top };
+        lastPos.current = { x: clientX - parent.left, y: clientY - parent.top };
         dragStartTime.current = performance.now();
     };
 
-    const onMouseMove = (e: MouseEvent) => {
+    const onMove = (e: MouseEvent | TouchEvent) => {
         if (isDragging === null || !parentRef.current) return;
 
         const parent = parentRef.current.getBoundingClientRect();
-        const dx = e.clientX - parent.left - lastPos.current.x;
-        const dy = e.clientY - parent.top - lastPos.current.y;
+
+        let clientX, clientY;
+        if ("touches" in e) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+
+        const dx = clientX - parent.left - lastPos.current.x;
+        const dy = clientY - parent.top - lastPos.current.y;
 
         if (dx === 0 && dy === 0) return;
 
@@ -100,15 +121,25 @@ export default function CrownCard({ className }: Props) {
             return newPositions;
         });
 
-        lastPos.current = { x: e.clientX - parent.left, y: e.clientY - parent.top };
+        lastPos.current = { x: clientX - parent.left, y: clientY - parent.top };
     };
 
-    const onMouseUp = (e: MouseEvent) => {
+    const onEnd = (e: MouseEvent | TouchEvent) => {
         if (isDragging === null || !parentRef.current) return;
 
         const parent = parentRef.current.getBoundingClientRect();
-        const dx = e.clientX - parent.left - startPos.current.x;
-        const dy = e.clientY - parent.top - startPos.current.y;
+
+        let clientX, clientY;
+        if ("changedTouches" in e) {
+            clientX = e.changedTouches[0].clientX;
+            clientY = e.changedTouches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+
+        const dx = clientX - parent.left - startPos.current.x;
+        const dy = clientY - parent.top - startPos.current.y;
 
         const dragEndTime = performance.now();
         const duration = (dragEndTime - dragStartTime.current) / 1000;
@@ -247,9 +278,12 @@ export default function CrownCard({ className }: Props) {
             <div
                 ref={parentRef}
                 class="relative w-[310px] h-[356px] flex justify-center items-center"
-                onMouseMove={onMouseMove}
-                onMouseUp={onMouseUp}
-                onMouseLeave={onMouseUp}>
+                onMouseMove={onMove}
+                onMouseUp={onEnd}
+                onMouseLeave={onEnd}
+                onTouchMove={onMove}
+                onTouchEnd={onEnd}
+                onTouchCancel={onEnd}>
                 {positions.map((pos, index) => (
                     <div key={index} ref={(el) => (childRefs.current[index] = el)} class="z-30">
                         <CollaboratorCursor
@@ -262,7 +296,8 @@ export default function CrownCard({ className }: Props) {
                                 top: `${pos.y}px`,
                                 cursor: isDragging === index ? "grabbing" : "grab",
                             }}
-                            onMouseDown={(e) => onMouseDown(e, index)}
+                            onMouseDown={(e) => onStart(e, index)}
+                            onTouchStart={(e) => onStart(e, index)}
                         />
                     </div>
                 ))}

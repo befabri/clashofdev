@@ -7,6 +7,7 @@ interface Props {
     isTextColored?: boolean;
     styleProps?: React.CSSProperties;
     onMouseDown?: (e: MouseEvent) => void;
+    onTouchStart?: (e: TouchEvent) => void;
 }
 
 const roundedSide = {
@@ -49,13 +50,15 @@ export default function CollaboratorCursor({
     isTextColored = false,
     styleProps,
     onMouseDown,
+    onTouchStart,
 }: Props) {
     return (
         <div
             name="collaborator_cursor"
             className={clsx("flex flex-col gap-[0.9px] z-30", side === "right" ? "items-end" : "")}
             style={styleProps}
-            onMouseDown={onMouseDown}>
+            onMouseDown={onMouseDown}
+            onTouchStart={onTouchStart}>
             <div
                 name="cursor"
                 className={clsx(
