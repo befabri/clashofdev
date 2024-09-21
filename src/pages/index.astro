@@ -1,6 +1,6 @@
 ---
 import CharacterCards from "@components/CharacterCards.astro";
-import CrownCard from "@components/CrownCard.astro";
+import CrownCard from "@components/CrownCard";
 import LandingTitle from "@components/LandingTitle.astro";
 import CTACard from "@components/ui/CTACard.astro";
 import Marquee from "@components/ui/Marquee.astro";
@@ -12,7 +12,10 @@ import LandingLayout from "@layouts/LandingLayout.astro";
         <div class="flex flex-col px-3 sm:px-8 lg:flex-row sm:mx-auto max-w-screen-2xl w-full">
             <div class="flex flex-col lg:flex-row justify-between w-full h-full items-center gap-10 sm:gap-20">
                 <LandingTitle class="justify-start relative w-full pr-[1px]" />
-                <CrownCard class="h-full flex justify-center md:justify-end md:pr-[39px]" />
+                <CrownCard
+                    client:only="preact"
+                    className="h-full flex justify-center md:justify-end md:pr-[39px]"
+                />
             </div>
         </div>
         <div class="flex pt-[100px] sm:pt-[160px]">
