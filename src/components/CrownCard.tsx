@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "preact/hooks";
+import { useState, useRef, useLayoutEffect, useEffect } from "preact/hooks";
 import CollaboratorCursor from "./ui/CollaboratorCursor";
 
 interface Props {
@@ -19,33 +19,43 @@ interface Cursor {
     color: "pink" | "green" | "blue" | "mustard" | "orange" | "purple";
 }
 
+const cursors = [
+    {
+        velocity: { x: 0, y: 0 },
+        side: "left" as const,
+        title: "@maislina_",
+        color: "orange" as const,
+    },
+    {
+        velocity: { x: 0, y: 0 },
+        side: "right" as const,
+        title: "@sometimecrea",
+        color: "pink" as const,
+    },
+    {
+        velocity: { x: 0, y: 0 },
+        side: "left" as const,
+        title: "@LLCoolChris",
+        color: "blue" as const,
+    },
+];
+
+function getInitialPositions(): Cursor[] {
+    const isSm = typeof window !== "undefined" && window.innerWidth >= 640;
+    const positions = [
+        isSm ? { x: 249, y: 190 } : { x: 228, y: 189 },
+        isSm ? { x: -19, y: 280 } : { x: -38, y: 279 },
+        isSm ? { x: 221, y: 307 } : { x: 202, y: 306 },
+    ];
+
+    return cursors.map((cursor, index) => ({
+        ...cursor,
+        ...positions[index],
+    }));
+}
+
 export default function CrownCard({ className }: Props) {
-    const [positions, setPositions] = useState<Cursor[]>([
-        {
-            x: 249,
-            y: 190,
-            velocity: { x: 0, y: 0 },
-            side: "left",
-            title: "@maislina_",
-            color: "orange",
-        },
-        {
-            x: -19,
-            y: 280,
-            velocity: { x: 0, y: 0 },
-            side: "right",
-            title: "@sometimecrea",
-            color: "pink",
-        },
-        {
-            x: 221,
-            y: 307,
-            velocity: { x: 0, y: 0 },
-            side: "left",
-            title: "@LLCoolChris",
-            color: "blue",
-        },
-    ]);
+    const [positions, setPositions] = useState<Cursor[]>(getInitialPositions());
     const [isDragging, setIsDragging] = useState<number | null>(null);
     const startPos = useRef({ x: 0, y: 0 });
     const lastPos = useRef({ x: 0, y: 0 });
@@ -55,6 +65,21 @@ export default function CrownCard({ className }: Props) {
     const containerSizes = useRef<{ width: number; height: number }[]>([]);
     const cursorSizes = useRef<{ width: number; height: number }[]>([]);
     const animationRef = useRef<number | null>(null);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(min-width: 640px)");
+        const handleMediaChange = () => {
+            setPositions(getInitialPositions());
+        };
+
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener("change", handleMediaChange);
+            return () => mediaQuery.removeEventListener("change", handleMediaChange);
+        } else {
+            mediaQuery.addListener(handleMediaChange);
+            return () => mediaQuery.removeListener(handleMediaChange);
+        }
+    }, []);
 
     const onStart = (e: MouseEvent | TouchEvent, index: number) => {
         e.preventDefault();
