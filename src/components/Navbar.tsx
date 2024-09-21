@@ -26,12 +26,12 @@ export default function Navbar() {
 
     if (!isMounted || isAtBottom) {
         return (
-            <div class="mx-auto max-w-screen-2xl w-full flex flex-row justify-between items-center h-[32px] px-3 sm:px-8"></div>
+            <div class="mx-auto max-w-screen-2xl w-full flex flex-row justify-between items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8"></div>
         );
     }
 
     return (
-        <div class="mx-auto max-w-screen-2xl w-full flex flex-row items-center px-3 sm:px-8">
+        <div class="mx-auto max-w-screen-2xl w-full flex flex-row items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8">
             <div class="flex-1 flex">
                 <Logo />
             </div>

@@ -8,13 +8,13 @@ import LandingLayout from "@layouts/LandingLayout.astro";
 ---
 
 <LandingLayout title="Clash of Dev">
-    <div class="w-full flex flex-col pb-[60px] pt-[225px]">
+    <div class="w-full flex flex-col pb-[60px] pt-[95px] sm:pt-[141px]">
         <div class="flex flex-col px-3 sm:px-8 lg:flex-row sm:mx-auto max-w-screen-2xl w-full">
             <div class="flex flex-col lg:flex-row justify-between w-full h-full items-center gap-10 sm:gap-20">
                 <LandingTitle class="justify-start relative w-full pr-[1px]" />
                 <CrownCard
                     client:only="preact"
-                    className="h-full flex justify-center md:justify-end md:pr-[39px]"
+                    className="h-full flex justify-center md:justify-end md:pr-[39px] px-[17px] pl-[21px]"
                 />
             </div>
         </div>
