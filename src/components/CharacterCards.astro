@@ -29,10 +29,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
     cards.map((card) => (
         <div
             class:list={[
-                "sticky top-0 h-full rounded-[60px] flex flex-col px-[47px] md:px-10 pt-[40px] pb-[114px] md:pb-[40px] justify-between gap-10 relative overflow-hidden",
+                "sticky top-0 h-full rounded-[60px] flex flex-col pb-[90px] px-[47px] md:px-10 pt-[40px] pb-[114px] md:pb-[40px] justify-between relative overflow-hidden",
                 card.bgColor,
             ]}>
-            <div class="flex flex-row md:justify-between md:px-[21px] h-full w-full">
+            <div class="flex flex-row md:justify-between md:px-[21px] w-full pb-[40px]">
                 <div class="flex flex-row md:gap-[124px] w-full gap-6 justify-start md:pl-[23px]">
                     <div class="flex flex-col gap-1 text-opacity-80">
                         <p class="uppercase">
@@ -56,7 +56,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                     ))}
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row gap-5 h-full w-full">
+            <div class="flex flex-col md:flex-row gap-6 h-full w-full">
                 <div class="flex-shrink relative">
                     <Image
                         src={images[card.image.src]()}
@@ -76,7 +76,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                         ))}
                     </div>
                 </div>
-                <div class="flex flex-col justify-start gap-8 text-xs font-semibold pt-[26px] flex-1 md:min-w-[245px] md:max-w-[400px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 md:pr-[48px] leading-5">
+                <div class="flex flex-col justify-start gap-8 text-xs font-semibold md:pt-[26px] flex-1 md:min-w-[245px] md:max-w-[400px] text-cod_black dark:text-cod_white dark:text-opacity-80 text-opacity-60 md:pr-[48px] leading-5">
                     <card.Content />
                 </div>
             </div>
