@@ -14,14 +14,11 @@ export default function Navbar({ scrollPercent }: Props) {
         setIsAtBottom(Math.round(scrollPercent) >= 100);
     }, [scrollPercent]);
 
-    if (isAtBottom) {
-        return (
-            <div class="mx-auto max-w-screen-2xl w-full flex flex-row items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8"></div>
-        );
-    }
-
     return (
-        <div class="mx-auto max-w-screen-2xl w-full flex flex-row items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8">
+        <div
+            class={`mx-auto max-w-screen-2xl w-full flex flex-row items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8 transition-all duration-150 ease-in-out ${
+                isAtBottom ? "opacity-0 transform" : "opacity-100 transform "
+            }`}>
             <div class="flex-1 flex">
                 <Logo />
             </div>
