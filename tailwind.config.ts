@@ -11,7 +11,7 @@ export default {
                 beige: "#F3F3F1",
                 beige_dark: "#D9D9D7",
                 smoke: "#9C9C9A",
-                smoke_dark: "#838381",
+                smoke_dark: "#171717",
                 pink_light: "#FFEDF5",
                 pink_mid: "#F588B9",
                 pink_dark: "#D6699A",
