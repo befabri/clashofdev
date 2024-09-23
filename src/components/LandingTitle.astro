@@ -10,19 +10,21 @@ const { class: className } = Astro.props;
 
 <div class:list={[className]}>
     <h1
-        class="text-[74px] sm:text-[115px] leading-[82px] sm:leading-[123px] font-semibold text-left md:text-center w-full max-w-xl md:max-w-2xl sm:mx-auto lg:mx-0 lg:max-w-2xl xl:max-w-4xl">
-        Que le plus <span class="ml-0 md:ml-20 xl:ml-0">fort,</span>
-        <span class="italic xl:ml-12">l'emporte!</span>
+        class="text-[74px] sm:text-[115px] leading-[82px] sm:leading-[123px] font-semibold text-left lg:text-center lg:mx-0 max-w-[390px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-2xl xl:max-w-4xl">
+        Que <span class="lg:mr-24 xl:mr-0">le</span> plus fort,
+        <span class="italic xl:ml-[70px] custom:ml-0 custom:px-[30px]">l'emporte!</span>
     </h1>
     <div
-        class="w-[78px] h-[78px] bg-purple_mid dark:bg-purple_dark rounded-full flex items-center justify-center absolute top-0 right-[38.55px] md:top-auto md:bottom-[140px] md:right-[65%] lg:bottom-[140px] lg:left-[130px] xl:bottom-[23.84px] xl:left-[28px]">
-        <Icon
-            class="w-[26.32px] h-[22.76px] text-green_light dark:text-green_light rotate-[-23deg]"
-            name="balise"
-        />
-    </div>
-    <div
-        class="absolute top-[61.62px] right-[22.24px] md:top-auto md:bottom-[140px] md:right-[62%] lg:bottom-[140px] lg:left-[190px] xl:bottom-[21.96px] xl:left-[87.46px]">
-        <Icon class="w-[44px] h-[47px] text-pink_mid dark:text-pink_dark" name="shield_lightning" />
+        class="absolute w-[103px] h-[80px] top-0 left-[248px] sm:top-[24px] sm:left-[390px] lg:top-[24px] lg:left-[480px] xl:top-auto xl:bottom-[21.96px] xl:left-[28px]">
+        <div
+            class="w-[78px] h-[78px] bg-purple_mid dark:bg-purple_dark rounded-full flex items-center justify-center top-0 left-0">
+            <Icon
+                class="w-[26.32px] h-[22.76px] text-green_light dark:text-green_light/60 rotate-[-23deg]"
+                name="balise"
+            />
+        </div>
+        <div class="absolute bottom-0 right-0">
+            <Icon class="w-[44px] h-[47px] text-pink_mid dark:text-pink_dark" name="shield_lightning" />
+        </div>
     </div>
 </div>

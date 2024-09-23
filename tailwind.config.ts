@@ -6,6 +6,7 @@ export default {
             screens: {
                 md: "880px",
                 lg: "1090px",
+                custom: "1350px",
             },
             colors: {
                 beige: "#F3F3F1",
