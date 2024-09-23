@@ -1,32 +1,22 @@
-import { useEffect, useState } from "preact/compat";
 import ScrollPercentage from "./ui/ScrollPercentage";
 import ToggleSwitch from "./ui/ToggleSwitch";
 import Logo from "./ui/Logo";
+import { useEffect, useState } from "preact/hooks";
 
-export default function Navbar() {
+interface Props {
+    scrollPercent: number;
+}
+
+export default function Navbar({ scrollPercent }: Props) {
     const [isAtBottom, setIsAtBottom] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const [scrollPercent, setScrollPercent] = useState(0);
-
-    const handleScroll = () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercentage = (scrollTop / docHeight) * 100;
-        const boundedScrollPercent = Math.min(Math.max(scrollPercentage, 0), 100);
-        setScrollPercent(boundedScrollPercent);
-        setIsAtBottom(Math.round(boundedScrollPercent) >= 100);
-    };
 
     useEffect(() => {
-        handleScroll();
-        setIsMounted(true);
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        setIsAtBottom(Math.round(scrollPercent) >= 100);
+    }, [scrollPercent]);
 
-    if (!isMounted || isAtBottom) {
+    if (isAtBottom) {
         return (
-            <div class="mx-auto max-w-screen-2xl w-full flex flex-row justify-between items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8"></div>
+            <div class="mx-auto max-w-screen-2xl w-full flex flex-row items-center h-[39px] sm:h-[39.4px] px-3 sm:px-8"></div>
         );
     }
 

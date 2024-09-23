@@ -1,5 +1,5 @@
 ---
-import Header from "@components/layouts/Header.astro";
+import Header from "@components/layouts/Header";
 import BaseLayout from "./BaseLayout.astro";
 import Container from "./common/Container.astro";
 import Footer from "@components/layouts/Footer.astro";
@@ -12,7 +12,7 @@ const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-    <Header />
+    <Header client:load />
     <Container>
         <slot />
     </Container>

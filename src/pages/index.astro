@@ -13,7 +13,7 @@ import LandingLayout from "@layouts/LandingLayout.astro";
             <div class="flex flex-col lg:flex-row justify-between w-full h-full items-center gap-10 sm:gap-20">
                 <LandingTitle class="justify-start relative w-full pr-[1px]" />
                 <CrownCard
-                    client:only="preact"
+                    client:load
                     className="h-full flex justify-center md:justify-end md:pr-[39px] px-[17px] pl-[21px]"
                 />
             </div>
