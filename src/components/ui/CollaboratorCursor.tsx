@@ -1,4 +1,3 @@
-import type { JSX } from "astro/jsx-runtime";
 import clsx from "clsx";
 
 interface Props {
@@ -6,9 +5,6 @@ interface Props {
     title: string;
     side: "right" | "left";
     isTextColored?: boolean;
-    styleProps?: JSX.CSSProperties;
-    onMouseDown?: (e: MouseEvent) => void;
-    onTouchStart?: (e: TouchEvent) => void;
 }
 
 const roundedSide = {
@@ -44,22 +40,11 @@ const styles = {
     purple: "bg-purple_mid border-purple_dark dark:border-purple_mid/60 dark:bg-purple_light",
 };
 
-export default function CollaboratorCursor({
-    title,
-    side,
-    style,
-    isTextColored = false,
-    styleProps,
-    onMouseDown,
-    onTouchStart,
-}: Props) {
+export default function CollaboratorCursor({ title, side, style, isTextColored = false }: Props) {
     return (
         <div
             name="collaborator_cursor"
-            className={clsx("flex flex-col gap-[0.9px] z-30", side === "right" ? "items-end" : "")}
-            style={styleProps}
-            onMouseDown={onMouseDown}
-            onTouchStart={onTouchStart}>
+            className={clsx("flex flex-col gap-[0.9px] z-30", side === "right" ? "items-end" : "")}>
             <div
                 name="cursor"
                 className={clsx(

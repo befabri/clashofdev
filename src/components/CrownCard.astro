@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import CursorArea from "./ui/CursorArea";
+
+const { className } = Astro.props;
+---
+
+<div class={className}>
+    <div class="relative w-[310px] h-[356px] flex justify-center items-center">
+        <CursorArea client:load />
+        <div
+            class="bg-cod_white dark:bg-cod_black rotate-[12.48deg] flex flex-col p-[9px] w-[249.11px] h-[309.53px] rounded-[10px] z-10">
+            <div class="flex justify-start">
+                <Icon class="h-[29px] w-[29px] text-beige dark:text-smoke_dark blur-[2px]" name="crown" />
+            </div>
+            <div class="flex-1 flex items-center justify-center">
+                <Icon class="h-[188px] w-[188px] text-beige dark:text-smoke_dark blur-[2px]" name="crown" />
+            </div>
+            <div class="flex justify-end">
+                <Icon class="h-[29px] w-[29px] text-beige dark:text-smoke_dark blur-[2px]" name="crown" />
+            </div>
+        </div>
+        <div class="absolute top-[34.88px] right-[-11.88px] z-20">
+            <Icon class="w-[55px] h-[55px] text-cod_black dark:text-black" name="clash_of_dev" />
+        </div>
+        <div
+            class="w-[40px] h-[40px] bg-purple_mid dark:bg-purple_dark rounded-full flex items-center justify-center absolute top-[17.24px] right-[17.81px] z-20">
+            <Icon class="w-[17px] h-[10px] text-green_light dark:text-green_light" name="balise" />
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 ---
 import CharacterCards from "@components/CharacterCards.astro";
-import CrownCard from "@components/CrownCard";
+import CrownCard from "@components/CrownCard.astro";
 import LandingTitle from "@components/LandingTitle.astro";
 import CTACard from "@components/ui/CTACard.astro";
 import Marquee from "@components/ui/Marquee.astro";
@@ -12,10 +12,7 @@ import LandingLayout from "@layouts/LandingLayout.astro";
         <section
             class="flex flex-col px-3 sm:px-8 lg:flex-row sm:mx-auto max-w-screen-2xl w-full items-center gap-10 sm:gap-20 justify-between">
             <LandingTitle class="justify-start relative w-full pr-[1px]" />
-            <CrownCard
-                client:load
-                className="h-full flex justify-center md:justify-end md:pr-[39px] px-[17px] pl-[21px]"
-            />
+            <CrownCard className="h-full flex justify-center md:justify-end md:pr-[39px] px-[17px] pl-[21px]" />
         </section>
         <section class="flex pt-[100px] sm:pt-[160px]">
             <Marquee />
