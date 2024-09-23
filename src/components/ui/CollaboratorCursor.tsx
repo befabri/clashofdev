@@ -1,3 +1,4 @@
+import type { JSX } from "astro/jsx-runtime";
 import clsx from "clsx";
 
 interface Props {
@@ -5,7 +6,7 @@ interface Props {
     title: string;
     side: "right" | "left";
     isTextColored?: boolean;
-    styleProps?: React.CSSProperties;
+    styleProps?: JSX.CSSProperties;
     onMouseDown?: (e: MouseEvent) => void;
     onTouchStart?: (e: TouchEvent) => void;
 }
