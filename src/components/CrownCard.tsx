@@ -75,9 +75,6 @@ export default function CrownCard({ className }: Props) {
         if (mediaQuery.addEventListener) {
             mediaQuery.addEventListener("change", handleMediaChange);
             return () => mediaQuery.removeEventListener("change", handleMediaChange);
-        } else {
-            mediaQuery.addListener(handleMediaChange);
-            return () => mediaQuery.removeListener(handleMediaChange);
         }
     }, []);
 
