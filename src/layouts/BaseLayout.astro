@@ -1,6 +1,5 @@
 ---
-import "@fontsource-variable/inter";
-import "@styles/globals.css";
+import Head from "@components/layouts/Head.astro";
 
 interface Props {
     title: string;
@@ -11,30 +10,7 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-        <script is:inline>
-            const setDarkMode = () => {
-                if (localStorage.getItem("color-scheme") === "dark") {
-                    document.querySelector("html").dataset.theme = "dark";
-                }
-                if (localStorage.getItem("color-scheme") === "light") {
-                    document.querySelector("html").dataset.theme = "light";
-                }
-                if (!localStorage.getItem("color-scheme")) {
-                    let defaultTheme = "light";
-                    localStorage.setItem("color-scheme", defaultTheme);
-                    document.querySelector("html").dataset.theme = defaultTheme;
-                }
-            };
-            setDarkMode();
-            document.addEventListener("astro:after-swap", setDarkMode);
-        </script>
-    </head>
+    <Head title={title} />
     <body class="antialiased bg-beige text-cod_black dark:text-cod_white dark:bg-cod_black/95">
         <slot />
     </body>
