@@ -34,16 +34,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
             ]}>
             <div class="flex flex-row md:justify-between md:px-[21px] w-full pb-[40px]">
                 <div class="flex flex-row md:gap-[124px] w-full gap-6 justify-start md:pl-[23px]">
-                    <div class="flex flex-col gap-1 text-opacity-80">
+                    <div class="flex flex-col gap-1 text-opacity-80 font-semibold text-xs">
                         <p class="uppercase">
-                            <>
-                                <span class="hidden md:flex">{card.category}</span>
-                                <span class="md:hidden">NOS HÉROS</span>
-                            </>
+                            <span class="hidden md:flex">{card.category}</span>
+                            <span class="md:hidden">NOS HÉROS</span>
                         </p>
                         <p>{card.point} pts</p>
                     </div>
-                    <p class="font-bold tracking-tight flex-1">{card.title}</p>
+                    <p class="font-bold tracking-tight flex-1 text-xs">{card.title}</p>
                 </div>
                 <div class="hidden md:flex flex-row gap-5">
                     {card.cursors.map((cursor) => (
