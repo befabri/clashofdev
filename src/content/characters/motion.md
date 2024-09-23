@@ -3,7 +3,7 @@ title: "LE MAITRE DE LA FLUIDITÉ"
 order: 3
 category: "MOTION"
 point: "/3"
-image: { src: "/src/assets/cards/3.png", alt: "" }
+image: { src: "/src/assets/cards/3.png", alt: "Le maitre de la fluidité" }
 bgColor: "bg-green_light dark:bg-green_dark"
 icon: {
     name: "star",

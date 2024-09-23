@@ -3,7 +3,7 @@ title: "LE SUR-BOOSTED"
 order: 6
 category: "BIG BOSS"
 point: "/ infinite"
-image: { src: "/src/assets/cards/6.png", alt: "" }
+image: { src: "/src/assets/cards/6.png", alt: "Le sur-boosted" }
 bgColor: "bg-orange_light dark:bg-orange_dark"
 icon: {
     name: "smiley",

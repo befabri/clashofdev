@@ -3,7 +3,7 @@ title: "L'ARTISTE DE RENOM"
 order: 1
 category: "DESIGN"
 point: "/6"
-image: { src: "/src/assets/cards/1.png", alt: "" }
+image: { src: "/src/assets/cards/1.png", alt: "L'artiste de renom" }
 bgColor: "bg-purple_light dark:bg-purple_dark"
 icon: {
     name: "cursor",

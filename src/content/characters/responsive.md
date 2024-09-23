@@ -3,7 +3,7 @@ title: "LE CHERCHEUR DE BREAKPOINT"
 order: 4
 category: "RESPONSIVE"
 point: "/2"
-image: { src: "/src/assets/cards/4.png", alt: "" }
+image: { src: "/src/assets/cards/4.png", alt: "Le chercheur de breakpoint" }
 bgColor: "bg-blue_light dark:bg-blue_dark"
 icon: {
     name: "lightning",
