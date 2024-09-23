@@ -55,7 +55,7 @@ function getInitialPositions(): Cursor[] {
 }
 
 export default function CrownCard({ className }: Props) {
-    const [positions, setPositions] = useState<Cursor[]>(getInitialPositions());
+    const [cursors, setCursors] = useState<Cursor[]>(getInitialPositions());
     const [isDragging, setIsDragging] = useState<number | null>(null);
     const startPos = useRef({ x: 0, y: 0 });
     const lastPos = useRef({ x: 0, y: 0 });
@@ -69,7 +69,7 @@ export default function CrownCard({ className }: Props) {
     useEffect(() => {
         const mediaQuery = window.matchMedia("(min-width: 640px)");
         const handleMediaChange = () => {
-            setPositions(getInitialPositions());
+            setCursors(getInitialPositions());
         };
 
         if (mediaQuery.addEventListener) {
@@ -120,12 +120,12 @@ export default function CrownCard({ className }: Props) {
 
         if (dx === 0 && dy === 0) return;
 
-        setPositions((prevPositions) => {
-            const newPositions = prevPositions.map((pos, index) => {
-                if (index !== isDragging) return pos;
+        setCursors((prevCursors) => {
+            const newPositions = prevCursors.map((cursor, index) => {
+                if (index !== isDragging) return cursor;
 
-                const newX = pos.x + dx;
-                const newY = pos.y + dy;
+                const newX = cursor.x + dx;
+                const newY = cursor.y + dy;
 
                 const cursorSize = cursorSizes.current[index]?.width || 0;
                 const totalWidth = containerSizes.current[index]?.width || 0;
@@ -133,7 +133,7 @@ export default function CrownCard({ className }: Props) {
                 let clampedX = newX;
                 let clampedY = newY;
 
-                if (pos.side === "right") {
+                if (cursor.side === "right") {
                     clampedX = Math.max(-totalWidth + cursorSize, Math.min(newX, parent.width - totalWidth));
                 } else {
                     clampedX = Math.max(0, Math.min(newX, parent.width - cursorSize));
@@ -141,7 +141,7 @@ export default function CrownCard({ className }: Props) {
 
                 clampedY = Math.max(0, Math.min(newY, parent.height - cursorSize));
 
-                return { ...pos, x: clampedX, y: clampedY };
+                return { ...cursor, x: clampedX, y: clampedY };
             });
             return newPositions;
         });
@@ -169,15 +169,15 @@ export default function CrownCard({ className }: Props) {
         const dragEndTime = performance.now();
         const duration = (dragEndTime - dragStartTime.current) / 1000;
 
-        setPositions((prevPositions) => {
-            const newPositions = prevPositions.map((pos, index) => {
-                if (index !== isDragging) return pos;
+        setCursors((prevCursors) => {
+            const newPositions = prevCursors.map((cursor, index) => {
+                if (index !== isDragging) return cursor;
 
                 const time = duration > 0 ? duration : 0.01;
                 const velocityScale = 0.05;
 
                 return {
-                    ...pos,
+                    ...cursor,
                     velocity: {
                         x: (dx / time) * velocityScale,
                         y: (dy / time) * velocityScale,
@@ -195,11 +195,11 @@ export default function CrownCard({ className }: Props) {
     };
 
     const moveWithVelocity = () => {
-        setPositions((prevPositions) => {
+        setCursors((prevCursors) => {
             const parent = parentRef.current;
             if (!parent) {
                 animationRef.current = null;
-                return prevPositions;
+                return prevCursors;
             }
 
             const parentRect = parent.getBoundingClientRect();
@@ -208,27 +208,27 @@ export default function CrownCard({ className }: Props) {
 
             let anyVelocity = false;
 
-            const newPositions = prevPositions.map((pos, index) => {
-                if (pos.velocity.x === 0 && pos.velocity.y === 0) return pos;
+            const newPositions = prevCursors.map((cursor, index) => {
+                if (cursor.velocity.x === 0 && cursor.velocity.y === 0) return cursor;
 
                 anyVelocity = true;
 
-                let newX = pos.x + pos.velocity.x;
-                let newY = pos.y + pos.velocity.y;
+                let newX = cursor.x + cursor.velocity.x;
+                let newY = cursor.y + cursor.velocity.y;
 
                 const cursorSize = cursorSizes.current[index]?.width || 0;
                 const totalWidth = containerSizes.current[index]?.width || 0;
 
-                if (pos.side === "right") {
+                if (cursor.side === "right") {
                     const minX = -totalWidth + cursorSize;
                     const maxX = parentWidth - totalWidth;
 
                     if (newX < minX) {
                         newX = minX;
-                        pos.velocity.x *= -0.3;
+                        cursor.velocity.x *= -0.3;
                     } else if (newX > maxX) {
                         newX = maxX;
-                        pos.velocity.x *= -0.3;
+                        cursor.velocity.x *= -0.3;
                     }
                 } else {
                     const minX = 0;
@@ -236,29 +236,29 @@ export default function CrownCard({ className }: Props) {
 
                     if (newX < minX) {
                         newX = minX;
-                        pos.velocity.x *= -0.3;
+                        cursor.velocity.x *= -0.3;
                     } else if (newX > maxX) {
                         newX = maxX;
-                        pos.velocity.x *= -0.3;
+                        cursor.velocity.x *= -0.3;
                     }
                 }
 
                 if (newY < 0) {
                     newY = 0;
-                    pos.velocity.y *= -0.3;
+                    cursor.velocity.y *= -0.3;
                 } else if (newY > parentHeight - cursorSize) {
                     newY = parentHeight - cursorSize;
-                    pos.velocity.y *= -0.3;
+                    cursor.velocity.y *= -0.3;
                 }
 
-                let newVelocityX = pos.velocity.x * 0.85;
-                let newVelocityY = pos.velocity.y * 0.85;
+                let newVelocityX = cursor.velocity.x * 0.85;
+                let newVelocityY = cursor.velocity.y * 0.85;
 
                 if (Math.abs(newVelocityX) < 0.1) newVelocityX = 0;
                 if (Math.abs(newVelocityY) < 0.1) newVelocityY = 0;
 
                 return {
-                    ...pos,
+                    ...cursor,
                     x: newX,
                     y: newY,
                     velocity: {
@@ -279,7 +279,7 @@ export default function CrownCard({ className }: Props) {
     };
 
     useLayoutEffect(() => {
-        positions.forEach((pos, index) => {
+        cursors.forEach((_, index) => {
             const child = childRefs.current[index];
             if (child) {
                 const containerElement = child.querySelector('[name="collaborator_cursor"]');
@@ -296,7 +296,7 @@ export default function CrownCard({ className }: Props) {
                 }
             }
         });
-    }, [positions]);
+    }, [cursors]);
 
     return (
         <div class={className}>
@@ -309,16 +309,16 @@ export default function CrownCard({ className }: Props) {
                 onTouchMove={onMove}
                 onTouchEnd={onEnd}
                 onTouchCancel={onEnd}>
-                {positions.map((pos, index) => (
+                {cursors.map((cursor, index) => (
                     <div key={index} ref={(el) => (childRefs.current[index] = el)} class="z-30">
                         <CollaboratorCursor
-                            title={pos.title}
-                            side={pos.side}
-                            style={pos.color}
+                            title={cursor.title}
+                            side={cursor.side}
+                            style={cursor.color}
                             styleProps={{
                                 position: "absolute",
-                                left: `${pos.x}px`,
-                                top: `${pos.y}px`,
+                                left: `${cursor.x}px`,
+                                top: `${cursor.y}px`,
                                 cursor: isDragging === index ? "grabbing" : "grab",
                             }}
                             onMouseDown={(e) => onStart(e, index)}
