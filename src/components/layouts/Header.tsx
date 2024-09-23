@@ -1,5 +1,5 @@
 import Navbar from "@components/Navbar";
-import ProgressBar from "@components/ProgressBar";
+import ProgressBar from "@components/ui/ProgressBar";
 import { useEffect, useState } from "preact/hooks";
 
 export default function Header() {
