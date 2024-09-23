@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import Lightning from "./ui/Lightning";
 
 interface Props {
     class?: string;
@@ -23,7 +22,7 @@ const { class: className } = Astro.props;
         />
     </div>
     <div
-        class="absolute top-[61.62px] right-[22.24px] md:top-auto md:bottom-[140px] md:right-[62%] lg:bottom-[140px] lg:left-[190px] xl:bottom-[21.96px] xl:left-[87.46px] z-30">
-        <Lightning client:only="preact" />
+        class="absolute top-[61.62px] right-[22.24px] md:top-auto md:bottom-[140px] md:right-[62%] lg:bottom-[140px] lg:left-[190px] xl:bottom-[21.96px] xl:left-[87.46px]">
+        <Icon class="w-[44px] h-[47px]" name="shield_lightning" />
     </div>
 </div>

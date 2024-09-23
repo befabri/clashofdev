@@ -37,14 +37,9 @@ export default {
                     "0%": { transform: "translateX(0)" },
                     "100%": { transform: "translateX(-50%)" },
                 },
-                colorTransition: {
-                    "0%": { fill: "#ECFFCE" },
-                    "100%": { fill: "#F5D95D" },
-                },
             },
             animation: {
                 marquee: "marquee 30s linear infinite",
-                lightning: "colorTransition 1.2s ease-in forwards",
             },
         },
     },
