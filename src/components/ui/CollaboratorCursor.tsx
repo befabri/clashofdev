@@ -102,7 +102,7 @@ export default function CollaboratorCursor({
                     styles[style],
                     isTextColored ? textStyles[style] : textStyles["white"]
                 )}>
-                <p class="font-semibold text-xs p-0 m-0 select-none">{title}</p>
+                <span class="font-semibold text-xs p-0 m-0 select-none">{title}</span>
             </div>
         </div>
     );

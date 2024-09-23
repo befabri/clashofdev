@@ -27,7 +27,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
 
 {
     cards.map((card) => (
-        <div
+        <article
             class:list={[
                 "sticky top-0 h-full rounded-[60px] flex flex-col pb-[90px] px-[47px] md:px-10 pt-[40px] pb-[114px] md:pb-[40px] justify-between relative overflow-hidden",
                 card.bgColor,
@@ -41,7 +41,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                         </p>
                         <p>{card.point} pts</p>
                     </div>
-                    <p class="font-bold tracking-tight flex-1 text-xs">{card.title}</p>
+                    <h2 class="font-bold tracking-tight flex-1 text-xs">{card.title}</h2>
                 </div>
                 <div class="hidden md:flex flex-row gap-5">
                     {card.cursors.map((cursor) => (
@@ -85,6 +85,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
                 ]}>
                 <Icon class={card.icon.size} name={card.icon.name} />
             </div>
-        </div>
+        </article>
     ))
 }
