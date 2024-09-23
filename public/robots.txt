@@ -1,0 +1,1 @@
+user-agent: *Allow: /Sitemap: https://clashofdev.bfabri.me/sitemap-index.xml
