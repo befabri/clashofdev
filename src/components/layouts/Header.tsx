@@ -8,7 +8,7 @@ export default function Header() {
     const handleScroll = () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercentage = (scrollTop / docHeight) * 100;
+        const scrollPercentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         const boundedScrollPercent = Math.min(Math.max(scrollPercentage, 0), 100);
         setScrollPercent(boundedScrollPercent);
     };
