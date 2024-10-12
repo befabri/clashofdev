@@ -29,7 +29,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/cards/*
     cards.map((card) => (
         <article
             class:list={[
-                "sticky top-0 h-full rounded-[60px] flex flex-col pb-[90px] px-[47px] md:px-10 pt-[40px] pb-[114px] md:pb-[40px] justify-between relative overflow-hidden",
+                "sticky top-[100px] md:top-[76px] h-full rounded-[60px] flex flex-col pb-[90px] px-[47px] md:px-10 pt-[40px] pb-[114px] md:pb-[40px] justify-between relative overflow-hidden",
                 card.bgColor,
             ]}>
             <div class="flex flex-row md:justify-between md:px-[21px] w-full pb-[40px]">

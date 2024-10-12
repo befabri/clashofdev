@@ -12,7 +12,7 @@ const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-    <Header client:load />
+    <Header client:only="preact" />
     <Container>
         <slot />
     </Container>
