@@ -75,7 +75,6 @@ export default function CursorArea() {
     }, []);
 
     const onStart = (e: MouseEvent | TouchEvent, index: number) => {
-        console.log("------");
         e.preventDefault();
         if (!parentRef.current) return;
         const parent = parentRef.current.getBoundingClientRect();

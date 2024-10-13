@@ -24,7 +24,6 @@ export default function Navbar({ scrollPercent }: Props) {
     }, []);
 
     useEffect(() => {
-        console.log(windowWidth);
         if (windowWidth <= 880) {
             setIsAtBottom(Math.round(scrollPercent) >= 99);
         } else {
