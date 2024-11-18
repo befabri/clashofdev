@@ -20,7 +20,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header class="sticky top-0 z-50 w-full h-[39px] sm:h-[39.4px]">
+        <header class="fixed top-0 z-50 w-full h-[39px]">
             <ProgressBar scrollPercent={scrollPercent} />
             <div class="flex flex-col items-center pt-[40px] sm:pt-[20px]">
                 <Navbar scrollPercent={scrollPercent} />
